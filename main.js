@@ -21,13 +21,13 @@ app.get('/', (req, res) => {
   res.send(basicHtml);
 });
 
-// Redirect HTTP to HTTPS
-http.createServer((req, res) => {
-  res.writeHead(301, {
-    "Location": `https://${req.headers.host}${req.url}`
-  });
-  res.end();
-}).listen(80);
+// // Redirect HTTP to HTTPS
+// http.createServer((req, res) => {
+//   res.writeHead(301, {
+//     "Location": `https://${req.headers.host}${req.url}`
+//   });
+//   res.end();
+// }).listen(80);
 
 // HTTPS server with Let's Encrypt cert
 const options = {
