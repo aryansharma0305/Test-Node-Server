@@ -4,7 +4,6 @@ const http = require('http');
 const express = require('express');
 const app = express();
 
-// Your existing HTML
 const basicHtml = `<!DOCTYPE html>
 <html>
 <head>
@@ -21,18 +20,20 @@ app.get('/', (req, res) => {
   res.send(basicHtml);
 });
 
-// Redirect HTTP (port 80) to HTTPS
+// Redirect HTTP to HTTPS
 http.createServer((req, res) => {
-  res.writeHead(301, { "Location": `https://${req.headers.host}${req.url}` });
+  res.writeHead(301, {
+    "Location": `https://${req.headers.host}${req.url}`
+  });
   res.end();
 }).listen(80);
 
-// HTTPS setup with Let's Encrypt certs
+// HTTPS server with Let's Encrypt cert
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/notsapp.aryan-sharma.xyz/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/notsapp.aryan-sharma.xyz/fullchain.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/fullchain.pem'),
 };
 
 https.createServer(options, app).listen(443, () => {
-  console.log(`🚀 HTTPS server running at https://notsapp.aryan-sharma.xyz`);
+  console.log('✅ HTTPS server running at https://test.aryan-sharma.xyz');
 });
