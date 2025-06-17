@@ -12,6 +12,7 @@ const basicHtml = `<!DOCTYPE html>
 <body>
     <h1>Welcome to My App</h1>
     <p>This is a simple HTML page served by Express.</p>
+    <p>Using Azure VM and custom SSL ceritiface for free for life.</p>
 </body>
 </html>
 `;
