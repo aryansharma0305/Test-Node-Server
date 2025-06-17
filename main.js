@@ -21,6 +21,17 @@ app.get('/', (req, res) => {
   res.send(basicHtml);
 });
 
+
+
+
+
+app.listen(3000, () => {
+  console.log('✅ Express server running at http://localhost:3000');
+});
+
+
+
+
 // // Redirect HTTP to HTTPS
 // http.createServer((req, res) => {
 //   res.writeHead(301, {
@@ -29,12 +40,12 @@ app.get('/', (req, res) => {
 //   res.end();
 // }).listen(80);
 
-// HTTPS server with Let's Encrypt cert
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/fullchain.pem'),
-};
+// // HTTPS server with Let's Encrypt cert
+// const options = {
+//   key: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/test.aryan-sharma.xyz/fullchain.pem'),
+// };
 
-https.createServer(options, app).listen(443, () => {
-  console.log('✅ HTTPS server running at https://test.aryan-sharma.xyz');
-});
+// https.createServer(options, app).listen(443, () => {
+//   console.log('✅ HTTPS server running at https://test.aryan-sharma.xyz');
+// });
